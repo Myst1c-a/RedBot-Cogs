@@ -26,7 +26,7 @@ class AFK(commands.Cog):
                 pass
 
         afks[member.id] = reason
-        await ctx.send(f'You are now AFK **{member.name}**. Send a message to remove it.')
+        await ctx.reply(f'You are now AFK **{member.name}**. Send a message to remove it.')
  
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -42,8 +42,8 @@ class AFK(commands.Cog):
             member = get(message.guild.members, id=id)
             if (message.reference and member == (await message.channel.fetch_message(message.reference.message_id)).author) or member.id in message.raw_mentions:
                 e=discord.Embed(
-                    title=f"{message.author.name} is AFK",
-                    description=f"**Message:**\n{reason}",
+                    title=f"{member.name} is AFK",
+                    description=f"**Message:**\n\n{reason}",
                     color=0xd3c1e3
                 )
-                await message.channel.send(embed=e)
+                await message.reply(embed=e)
