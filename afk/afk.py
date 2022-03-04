@@ -43,9 +43,7 @@ class AFK(commands.Cog):
             if (message.reference and member == (await message.channel.fetch_message(message.reference.message_id)).author) or member.id in message.raw_mentions:
                 e=discord.Embed(
                     title=f"{message.author.name} is AFK",
-                    description=f"**Message:**\n{reason}"
+                    description=f"**Message:**\n{reason}",
+                    color=0xd3c1e3
                 )
                 await message.send(embed=e)
-
-
-    
