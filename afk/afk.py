@@ -26,7 +26,7 @@ class AFK(commands.Cog):
                 pass
 
         afks[member.id] = reason
-        await ctx.send(f'You are now AFK **{member.name}**. Send a message to remove it.')
+        await ctx.reply(f'You are now AFK **{member.name}**. Send a message to remove it.')
  
     @commands.Cog.listener()
     async def on_message(self, message):
