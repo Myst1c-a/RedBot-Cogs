@@ -46,4 +46,4 @@ class AFK(commands.Cog):
                     description=f"**Message:**\n{reason}",
                     color=0xd3c1e3
                 )
-                await message.send(embed=e)
+                await message.channel.send(embed=e)
