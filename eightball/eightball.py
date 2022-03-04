@@ -7,7 +7,7 @@ class EightBall(commands.Cog):
         self.bot = bot
 
     
-    @commands.command(name='8ball', help='A simpe 8ball command', aliases=['8ball'])
+    @commands.command(name='8ball', help='A simpe 8ball command', aliases=['8b'])
     async def eightball(self, ctx,*, question):
      responses = ['As I see it, yes.',
              'Yes.',
