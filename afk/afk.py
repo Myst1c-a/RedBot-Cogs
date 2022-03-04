@@ -36,7 +36,7 @@ class AFK(commands.Cog):
                 await message.author.edit(nick=remove(message.author.display_name))
             except:
                 pass
-            await message.reply(f'Welcome back {message.author.name}. I have removed your AFK.')
+            await message.reply(f'Welcome back **{message.author.name}**. I have removed your AFK.')
 
         for id, reason in afks.items():
             member = get(message.guild.members, id=id)
