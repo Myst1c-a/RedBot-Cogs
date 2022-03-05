@@ -3,6 +3,7 @@ from redbot.core import commands
 import random
 import json
 import time
+import os
 
 class AFK(commands.Cog):
     '''
@@ -32,7 +33,9 @@ class AFK(commands.Cog):
     
     @commands.Cog.listener()
     async def on_message(self, message):
-        with open('mystic-cogs/db/afk.json', 'r') as f:
+        script_dir = os.path.dirname(__file__)
+        file_path = os.path.join(script_dir, 'db/afk.json')
+        with open(file_path, 'r') as f:
             afk = json.load(f)
         
         for user_mention in message.mentions:
@@ -48,7 +51,8 @@ class AFK(commands.Cog):
                 
                 meeeth = int(afk[f'{user_mention.id}']['mentions']) + 1
                 afk[f'{user_mention.id}']['mentions'] = meeeth
-                with open('mystic-cogs/db/afk.json', 'w') as f:
+                
+                with open(file_path, 'w') as f:
                     json.dump(afk, f)
         
         if not message.author.bot:
@@ -68,20 +72,22 @@ class AFK(commands.Cog):
                 afk[f'{message.author.id}']['time'] = '0'
                 afk[f'{message.author.id}']['mentions'] = 0
                 
-                with open('mystic-cogs/db/afk.json', 'w') as f:
+                with open(file_path, 'w') as f:
                     json.dump(afk, f)
                 
                 try:
                     await message.author.edit(nick=f'{message.author.display_name[5:]}')
                 except:
                     pass
-        
-        with open('mystic-cogs/afk.json', 'w') as f:
+                
+        with open(file_path, 'w') as f:
             json.dump(afk, f)
         
     @commands.command()
     async def afk(self, ctx, *, reason=None):
-        with open('mystic-cogs/db/afk.json', 'r') as f:
+        script_dir = os.path.dirname(__file__)
+        file_path = os.path.join(script_dir, 'db/afk.json')
+        with open(file_path, 'r') as f:
             afk = json.load(f)
 
         if not reason:
@@ -94,8 +100,7 @@ class AFK(commands.Cog):
         afk[f'{ctx.author.id}']['mentions'] = 0
 
         await ctx.reply("You're now AFK. Send a message to remove it.")
-
-        with open('mystic-cogs/db/afk.json', 'w') as f:
+        with open(file_path, 'w') as f:
             json.dump(afk, f)
         try:
             await ctx.author.edit(nick=f'[AFK]{ ctx.author.display_name}')
