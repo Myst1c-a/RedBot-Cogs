@@ -1,6 +1,6 @@
 from redbot.core import commands
 from .afks import afks
-
+from discord.utils import get
 
 def remove(afk):
     if '[AFK]' in afk.split():
@@ -40,11 +40,11 @@ class AFK(commands.Cog):
         for id, reason in afks.items():
             member = message.guild.get_member(id)
             if (message.reference and member == (await message.channel.fetch_message(message.reference.message_id)).author) or member.id in message.raw_mentions:
-                afkembed=discord.Embed(
+                emb=discord.Embed(
                     description=f"{member.mention} is AFK since\n**Message:**\n{reason}",
                     color=0xd3c1e3
                 )
                 
             if message.author.bot:
                 return
-            await message.reply(embed=afkembed)
+            await message.reply(embed=emb)
