@@ -27,7 +27,7 @@ class AFK(commands.Cog):
                 pass
 
         afks[member.id] = reason
-        await ctx.reply(f'You are now AFK **{member.name}**. Send a message to remove it.')
+        await ctx.send(f'You are now AFK **{member.name}**. Send a message to remove it.')
  
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -37,7 +37,7 @@ class AFK(commands.Cog):
                 await message.author.edit(nick=remove(message.author.display_name))
             except:
                 pass
-            await message.reply(f'Welcome back **{message.author.name}**. I have removed your AFK.')
+            await message.channel.send(f'Welcome back **{message.author.name}**. I have removed your AFK.')
 
         for id, reason in afks.items():
             member = get(message.guild.members, id=id)
@@ -46,6 +46,6 @@ class AFK(commands.Cog):
                     description=f"{member.mention} is AFK\n**Message:** {reason}",
                     color=0xd3c1e3
                 )
-                await message.reply(embed=emb)
+                await message.channel.send(embed=emb)
             if message.author.bot:
                 return
