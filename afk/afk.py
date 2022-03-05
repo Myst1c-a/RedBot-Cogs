@@ -39,14 +39,11 @@ class AFK(commands.Cog):
 
         for id, reason in afks.items():
             member = get(message.guild.members, id=id)
-            if message.author.bot:
-                return
             if (message.reference and member == (await message.channel.fetch_message(message.reference.message_id)).author) or member.id in message.raw_mentions:
                 emb=discord.Embed(
                     description=f"{member.mention} is AFK\n**Message:**{reason}",
                     color=0xd3c1e3
                 )
                 await message.reply(embed=emb)
-
-            
-
+            if message.author.bot:
+                return
