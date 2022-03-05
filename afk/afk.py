@@ -47,5 +47,3 @@ class AFK(commands.Cog):
                     color=0xd3c1e3
                 )
                 await message.channel.send(embed=emb)
-            if message.author.bot:
-                return
