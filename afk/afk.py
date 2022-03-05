@@ -38,7 +38,7 @@ class AFK(commands.Cog):
             await message.reply(f'Welcome back **{message.author.name}**. I have removed your AFK.')
 
         for id, reason in afks.items():
-            member = message.guild.get_member(id)
+            member = get(message.guild.members, id=id)
             if (message.reference and member == (await message.channel.fetch_message(message.reference.message_id)).author) or member.id in message.raw_mentions:
                 emb=discord.Embed(
                     description=f"{member.mention} is AFK since\n**Message:**\n{reason}",
