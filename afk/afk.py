@@ -1,7 +1,5 @@
 from redbot.core import commands
 from .afks import afks
-import discord
-from discord.utils import get
 
 
 def remove(afk):
