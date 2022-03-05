@@ -103,6 +103,6 @@ class AFK(commands.Cog):
         with open(file_path, 'w') as f:
             json.dump(afk, f)
         try:
-            await ctx.author.edit(nick=f'[AFK]{ ctx.author.display_name}')
+            await ctx.author.edit(nick=f'[AFK] {ctx.author.display_name}')
         except:
             pass
