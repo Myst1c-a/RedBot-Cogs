@@ -1,4 +1,4 @@
-from .afks import afks
+from afks import afks
 from redbot.core import commands
 import discord
 from discord.utils import get
