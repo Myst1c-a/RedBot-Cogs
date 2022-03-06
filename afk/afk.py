@@ -44,9 +44,8 @@ class AFK(commands.Cog):
                     return
                 
                 reason = afk[f'{user_mention.id}']['reason']
-                meth = int(time.time()) - int(afk[f'{user_mention.id}']['time'])
-                been_afk_for = await self.time_formatter(meth)
-                embed = discord.Embed(description=f'{user_mention.mention} is currently AFK.\n**Message:**\n{reason}', color=0xd3c1e3)
+                meth = afk[f'{user_mention.id}']['time']
+                embed = discord.Embed(description=f'{user_mention.mention} is AFK (<t:{meth}:R>)\n**Message:**\n{reason}', color=0xd3c1e3)
                 await message.channel.send(embed=embed)
                 
                 meeeth = int(afk[f'{user_mention.id}']['mentions']) + 1
@@ -64,7 +63,7 @@ class AFK(commands.Cog):
                 been_afk_for = await self.time_formatter(meth)
                 mentionz = afk[f'{message.author.id}']['mentions']
 
-                embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings.\nYou've been AFK for **{been_afk_for}**", color=0xd3c1e3)
+                embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings. color=0xd3c1e3)
                 await message.reply(embed=embed)
                 
                 afk[f'{message.author.id}']['AFK'] = 'False'
