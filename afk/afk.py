@@ -73,7 +73,7 @@ class AFK(commands.Cog):
                     json.dump(afk, f)
                 
                 try:
-                    await message.author.edit(nick=f'{message.author.display_name}')
+                    await message.author.edit(nick=f'{message.author.display_name[:5]}')
                 except:
                     pass
                 
