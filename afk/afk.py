@@ -58,12 +58,10 @@ class AFK(commands.Cog):
             await self.update_data(afk, message.author)
 
             if afk[f'{message.author.id}']['AFK'] == 'True':
-                
-                meth = int(time.time()) - int(afk[f'{message.author.id}']['time'])
-                been_afk_for = await self.time_formatter(meth)
+            
                 mentionz = afk[f'{message.author.id}']['mentions']
 
-                embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings. color=0xd3c1e3)
+                embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings.", color=0xd3c1e3)
                 await message.reply(embed=embed)
                 
                 afk[f'{message.author.id}']['AFK'] = 'False'
