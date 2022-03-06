@@ -64,6 +64,8 @@ class AFK(commands.Cog):
             await self.update_data(afk, message.author)
 
             if afk[f'{message.author.id}']['AFK'] == 'True':
+                if message.startswith('#'):
+                    return
             
                 mentionz = afk[f'{message.author.id}']['mentions']
 
