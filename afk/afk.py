@@ -5,6 +5,12 @@ import json
 import time
 import os
 
+def remove(afk):
+    if "[AFK]" in afk.split():
+        return " ".join(afk.split()[1:])
+    else:
+        return afk
+
 class AFK(commands.Cog):
     '''
     Class containing AFK commands/system.
@@ -73,7 +79,7 @@ class AFK(commands.Cog):
                     json.dump(afk, f)
                 
                 try:
-                    await message.author.edit(nick=f'{message.author.display_name[:5]}')
+                    await message.author.edit(nick=remove(message.author.display_name))
                 except:
                     pass
                 
