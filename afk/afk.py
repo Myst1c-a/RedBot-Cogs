@@ -70,10 +70,9 @@ class AFK(commands.Cog):
                     return
                 
                 meth = afk[f'{message.author.id}']['time']
-                been_afk_for = datetime.datetime.fromtimestamp(meth, tz=None)
                 mentionz = afk[f'{message.author.id}']['mentions']
 
-                embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings.", color=0xd3c1e3, timestamp=been_afk_for)
+                embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings.", color=0xd3c1e3)
                 embed.set_footer(text='AFK since')
                 await message.reply(embed=embed)
                 
