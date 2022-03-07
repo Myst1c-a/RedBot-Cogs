@@ -4,6 +4,7 @@ import random
 import json
 import time
 import os
+import datetime
 
 def remove(afk):
     if "[AFK]" in afk.split():
@@ -67,10 +68,13 @@ class AFK(commands.Cog):
 
                 if message.content.startswith('#'):
                     return
-            
+                
+                meth = afk[f'{message.author.id}']['time']
+                been_afk_for = datetime.datetime.fromtimestamp(meth, tz=None)
                 mentionz = afk[f'{message.author.id}']['mentions']
 
-                embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings.", color=0xd3c1e3)
+                embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings.", color=0xd3c1e3, timestamp=been_afk_for)
+                embed.set_footer(text='AFK since')
                 await message.reply(embed=embed)
                 
                 afk[f'{message.author.id}']['AFK'] = 'False'
