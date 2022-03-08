@@ -74,7 +74,6 @@ class AFK(commands.Cog):
 
                 embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings.", color=0xd3c1e3)
                 await message.reply(embed=embed)
-                await message.reply(embed=embed)
                 
                 afk[f'{message.author.id}']['AFK'] = 'False'
                 afk[f'{message.author.id}']['reason'] = 'None'
