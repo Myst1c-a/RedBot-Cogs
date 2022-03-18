@@ -102,6 +102,7 @@ class AFK(commands.Cog):
             reason = 'None'
         
         await self.update_data(afk, ctx.message.author)
+        afk[f'{ctx.author.id}']['user'] = f"{ctx.message.author}"
         afk[f'{ctx.author.id}']['AFK'] = 'True'
         afk[f'{ctx.author.id}']['reason'] = f'{reason}'
         afk[f'{ctx.author.id}']['time'] = int(time.time())
