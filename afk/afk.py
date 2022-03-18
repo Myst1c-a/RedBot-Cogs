@@ -114,3 +114,13 @@ class AFK(commands.Cog):
             await ctx.author.edit(nick=f'[AFK] {ctx.author.display_name}')
         except:
             pass
+        
+    @commands.command(aliases=['afkl'])
+    @commands.is_owner()
+    async def afklist(self, ctx):
+        script_dir = os.path.dirname(__file__)
+        file_path = os.path.join(script_dir, 'db/afk.json')
+        with open(file_path, 'r') as f:
+            afk = json.load(f)
+        afkl = json.dumps(afk, indent=4)
+        await ctx.send(f"```json\n{afkl}\n```")
