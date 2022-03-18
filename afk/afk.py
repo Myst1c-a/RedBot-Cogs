@@ -93,6 +93,7 @@ class AFK(commands.Cog):
         
     @commands.command()
     async def afk(self, ctx, *, reason=None):
+        """AFK command"""
         script_dir = os.path.dirname(__file__)
         file_path = os.path.join(script_dir, 'db/afk.json')
         with open(file_path, 'r') as f:
@@ -119,6 +120,7 @@ class AFK(commands.Cog):
     @commands.command(aliases=['afkl'])
     @commands.is_owner()
     async def afklist(self, ctx):
+        """A list of AFK users, restricted to the bot owner only"""
         script_dir = os.path.dirname(__file__)
         file_path = os.path.join(script_dir, 'db/afk.json')
         with open(file_path, 'r') as f:
