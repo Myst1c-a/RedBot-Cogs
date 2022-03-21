@@ -18,7 +18,5 @@ class Screenshot(commands.Cog):
             await ctx.send('Invalid URL')
             return
         e=discord.Embed(color=0xd3c1e3, timestamp=ctx.message.created_at)
-        e.set_image(url=f"https://image.thum.io/get/width/1920/crop/675/maxAge/1/noanimate/{site}")
+        e.set_image(url=f"https://api.popcat.xyz/screenshot?url={site}")
         await ctx.send(embed=e)
-
-
