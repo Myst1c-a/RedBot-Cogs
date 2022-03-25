@@ -4,10 +4,11 @@ class Channels(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.group(aliases=['cch'], invoke_without_command=True)
-    async def createchannel(self):
+    @commands.group(aliases=['cch'])
+    @commands.guild_only()
+    async def createchannel(self, ctx):
         """Creates channels."""
-        pass
+        
 
     @createchannel.command()
     async def text(self, ctx, name, category : int = None):
