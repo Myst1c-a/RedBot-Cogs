@@ -30,16 +30,6 @@ class Channels(commands.Cog):
         await ctx.send(f'**{name}** channel successfully created.')
 
 
-    @createchannel.command()
-    async def stage(self, ctx, name, category : int = None):
-        """Creates a stage channel."""
-        category = category or None
-        c = self.bot.get_channel(category)
-        guild = ctx.message.guild
-        await guild.create_stage_channel(name, category=c)
-        await ctx.send(f'**{name}** channel successfully created.')
-
-
     @commands.command(aliases=['cca'], name='createcategory') 
     @commands.has_permissions(manage_channels=True)
     async def createcategory(self, ctx, *, category_name):
