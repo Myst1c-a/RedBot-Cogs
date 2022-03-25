@@ -42,5 +42,5 @@ class Channels(commands.Cog):
     @commands.has_permissions(manage_channels=True)
     async def createcategory(self, ctx, *, category_name):
         """"Creates a category channel."""
-     await ctx.guild.create_category(category_name)
-     await ctx.send(f'**{category_name}** category successfully created.')
+        await ctx.guild.create_category(category_name)
+        await ctx.send(f'**{category_name}** category successfully created.')
