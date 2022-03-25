@@ -8,7 +8,7 @@ class Channels(commands.Cog):
     async def createchannel(self):
         pass
 
-    @createchannel.group()
+    @createchannel.command()
     async def text(self, ctx, name, category : int = None):
         """Creates a text channel."""
         category = category or None
@@ -18,7 +18,7 @@ class Channels(commands.Cog):
         await ctx.send(f'**{name}** channel successfully created.')
 
 
-    @createchannel.group()
+    @createchannel.command()
     async def voice(self, ctx, name, category : int = None):
         """Creates a voice channel."""
         category = category or None
@@ -28,7 +28,7 @@ class Channels(commands.Cog):
         await ctx.send(f'**{name}** channel successfully created.')
 
 
-    @createchannel.group()
+    @createchannel.command()
     async def stage(self, ctx, name, category : int = None):
         """Creates a stage channel."""
         category = category or None
