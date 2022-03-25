@@ -6,6 +6,7 @@ class Channels(commands.Cog):
 
     @commands.group(aliases=['cch'], invoke_without_command=True)
     async def createchannel(self):
+        """Creates channels."""
         pass
 
     @createchannel.command()
