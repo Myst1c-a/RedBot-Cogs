@@ -28,7 +28,8 @@ class Screenshot(commands.Cog):
         
         
     @screenshot.command()
-    async def send(ctx, channel : discord.TextChannel = None, notes):
+    async def send(self, ctx, channel : discord.TextChannel = None, notes):
+        """Sends a embedded discord attachment in a channel."""
         e=discord.Embed(color=0xd3c1e3)
         if notes == True:
             e.description(notes)
@@ -39,4 +40,3 @@ class Screenshot(commands.Cog):
         else:
             e.set_image(url=ctx.message.attachments[0].url)
             return await channel.send(embed=e)
-             
