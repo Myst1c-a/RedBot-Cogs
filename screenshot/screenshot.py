@@ -28,9 +28,9 @@ class Screenshot(commands.Cog):
         
         
     @screenshot.command()
-    async def send(self, ctx, channel : discord.TextChannel = None, attach : discord.Attachment):
+    async def send(self, ctx, channel : discord.TextChannel = None, attach : discord.Message):
         if channel is None:
             await ctx.send('No channel provided.')
         else:
-            await channel.send(attach.url)
+            await channel.send(attach.attachments[0].url)
             await ctx.send(f'Successfully sent attachment.')
