@@ -28,7 +28,7 @@ class Screenshot(commands.Cog):
         
         
     @screenshot.command()
-    async def send(self, ctx, channel : discord.TextChannel = None, notes):
+    async def send(ctx, channel : discord.TextChannel = None, notes):
         e=discord.Embed(color=0xd3c1e3)
         if notes == True:
             e.description(notes)
