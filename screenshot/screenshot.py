@@ -26,7 +26,7 @@ class Screenshot(commands.Cog):
         await ctx.send(embed=e)
         
     @screenshot.command()
-    async def send(self, ctx, channel : discord.TextChannel, content):
+    async def send(self, ctx, channel : discord.TextChannel, content : str):
         """Sends a discord attachment into a channel."""
         e=discord.Embed(color=0xd3c1e3)
         e.description(content)
