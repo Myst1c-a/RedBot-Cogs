@@ -30,6 +30,6 @@ class Screenshot(commands.Cog):
         """Sends a discord attachment into a channel."""
         e=discord.Embed(color=0xd3c1e3)
         e.description(content)
-        e.set_image(url=ctx.message.attachments[0].url)
+        e.set_image(url=content.attachments[0].url)
         await channel.send(embed=e)
         
