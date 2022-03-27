@@ -39,6 +39,7 @@ class Screenshot(commands.Cog):
             e.set_image(url=ctx.message.attachments[0].url)
             await channel.send(embed=e)
             await ctx.send('Successfully sent the attachment.')
+        await ctx.message.delete()
           
             
         
