@@ -11,8 +11,8 @@ class Screenshot(commands.Cog):
         self.bot = bot
 
 
-    @commands.group(aliases=['ss'])
-    async def screenshot(self, ctx, site):
+    @commands.group(aliases=['ss'], invoke_without_command=True)
+    async def screenshot(self):
         """Screenshot related commands."""
         
     @screenshot.command()
