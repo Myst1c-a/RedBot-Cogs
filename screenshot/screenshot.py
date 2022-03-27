@@ -26,10 +26,21 @@ class Screenshot(commands.Cog):
         await ctx.send(embed=e)
         
     @screenshot.command()
-    async def send(self, ctx, channel : discord.TextChannel, content : str):
+    async def send(self, ctx, channel : discord.TextChannel, content = None):
         """Sends a discord attachment into a channel."""
-        e=discord.Embed(description=content, color=0xd3c1e3)
-        e.set_image(url=ctx.message.attachments[0].url)
-        await channel.send(embed=e)
-        await ctx.send('Successfully sent the attachment.')
+        if content == None:
+            e=discord.Embed(color=0xd3c1e3)
+            e.set_image(url=ctx.message.attachments[0].url)
+            await channel.send(embed=e)
+            await ctx.send('Successfully sent the attachment.')
+            return
+        else:
+            e=discord.Embed(description=content, color=0xd3c1e3)
+            e.set_image(url=ctx.message.attachments[0].url)
+            await channel.send(embed=e)
+            await ctx.send('Successfully sent the attachment.')
+          
+            
+        
+
         
