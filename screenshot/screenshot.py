@@ -33,13 +33,15 @@ class Screenshot(commands.Cog):
             e.set_image(url=ctx.message.attachments[0].url)
             await channel.send(embed=e)
             await ctx.send('Successfully sent the attachment.')
+            await ctx.message.delete()
             return
         else:
             e=discord.Embed(description=content, color=0xd3c1e3)
             e.set_image(url=ctx.message.attachments[0].url)
             await channel.send(embed=e)
             await ctx.send('Successfully sent the attachment.')
-        await ctx.message.delete()
+            await ctx.message.delete()
+        
           
             
         
