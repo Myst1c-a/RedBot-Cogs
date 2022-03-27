@@ -12,7 +12,7 @@ class Screenshot(commands.Cog):
 
 
     @commands.group(aliases=['ss'], invoke_without_command=True)
-    async def screenshot(self):
+    async def screenshot(self, ctx):
         """Screenshot related commands."""
         
     @screenshot.command()
