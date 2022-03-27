@@ -25,18 +25,11 @@ class Screenshot(commands.Cog):
         e.set_image(url=f"https://api.popcat.xyz/screenshot?url={site}")
         await ctx.send(embed=e)
         
-        
-        
     @screenshot.command()
-    async def send(self, ctx, channel : discord.TextChannel = None, notes):
-        """Sends a embedded discord attachment in a channel."""
+    async def send(self, ctx, channel : discord.TextChannel, content):
+        """Sends a discord attachment into a channel."""
         e=discord.Embed(color=0xd3c1e3)
-        if notes == True:
-            e.description(notes)
-            e.set_image(url=ctx.message.attachments[0].url)
-            await channel.send(embed=e)
-            await ctx.send(f'Successfully sent attachment.')
-            return 
-        else:
-            e.set_image(url=ctx.message.attachments[0].url)
-            return await channel.send(embed=e)
+        e.description(content)
+        e.set_image(url=ctx.message.attachments[0].url)
+        await channel.send(embed=e)
+        
