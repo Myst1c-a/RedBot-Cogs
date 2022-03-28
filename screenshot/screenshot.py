@@ -33,7 +33,6 @@ class Screenshot(commands.Cog):
             e=discord.Embed(color=0xd3c1e3)
             e.set_image(url=ctx.message.attachments[0].url)
             await channel.send(embed=e)
-            await ctx.send('Successfully sent the attachment.')
             await ctx.message.add_reaction('✅')
             await asyncio.sleep(0.5)
             await ctx.message.delete()
@@ -42,13 +41,6 @@ class Screenshot(commands.Cog):
             e=discord.Embed(description=content, color=0xd3c1e3)
             e.set_image(url=ctx.message.attachments[0].url)
             await channel.send(embed=e)
-            await ctx.send('Successfully sent the attachment.')
             await ctx.message.add_reaction('✅')
             await asyncio.sleep(0.5)
             await ctx.message.delete()
-        
-          
-            
-        
-
-        
