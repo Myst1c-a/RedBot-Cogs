@@ -1,6 +1,7 @@
 from redbot.core import commands
 import re
 import discord
+import asyncio
 
 URL_REGEX = re.compile(r"http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+")
 
@@ -33,6 +34,8 @@ class Screenshot(commands.Cog):
             e.set_image(url=ctx.message.attachments[0].url)
             await channel.send(embed=e)
             await ctx.send('Successfully sent the attachment.')
+            await ctx.message.add_reaction('✅')
+            await asyncio.sleep(0.5)
             await ctx.message.delete()
             return
         else:
@@ -40,6 +43,8 @@ class Screenshot(commands.Cog):
             e.set_image(url=ctx.message.attachments[0].url)
             await channel.send(embed=e)
             await ctx.send('Successfully sent the attachment.')
+            await ctx.message.add_reaction('✅')
+            await asyncio.sleep(0.5)
             await ctx.message.delete()
         
           
