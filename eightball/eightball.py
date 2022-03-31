@@ -26,7 +26,7 @@ class EightBall(commands.Cog):
              'Im to lazy to predict.',
              'I am tired. *proceeds with sleeping*']
      response = random.choice(responses)
-     embed=discord.Embed(title="The Magic 8 Ball has Spoken!", color=self.bot.color)
+     embed=discord.Embed(title="The Magic 8 Ball has Spoken!", color=0xd3c1e3)
      embed.add_field(name='Question: ', value=f'{question}', inline=True)
      embed.add_field(name='Answer: ', value=f'{response}', inline=False)
      await ctx.send(embed=embed)
