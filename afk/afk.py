@@ -25,18 +25,8 @@ class AFK(commands.Cog):
             afk[f'{user.id}']['AFK'] = 'False'
             afk[f'{user.id}']['reason'] = 'None'
     
-    async def time_formatter(self, seconds: float):
-        '''
-        Convert UNIX time to human readable time.
-        '''
-        minutes, seconds = divmod(int(seconds), 60)
-        hours, minutes = divmod(minutes, 60)
-        days, hours = divmod(hours, 24)
-        tmp = ((str(days) + "d, ") if days else "") + \
-            ((str(hours) + "h, ") if hours else "") + \
-            ((str(minutes) + "m, ") if minutes else "") + \
-            ((str(seconds) + "s, ") if seconds else "")
-        return tmp[:-2]
+    async def red_delete_data_for_user(self, *, requester: str, user_id: int) -> None:
+        return
     
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -52,7 +42,7 @@ class AFK(commands.Cog):
                 
                 reason = afk[f'{user_mention.id}']['reason']
                 meth = afk[f'{user_mention.id}']['time']
-                embed = discord.Embed(description=f'{user_mention.mention} is AFK (<t:{meth}:R>)\n**Message:**\n{reason}', color=self.bot.color)
+                embed = discord.Embed(description=f'{user_mention.mention} is AFK (<t:{meth}:R>)\n**Message:**\n{reason}', color=0xd3c1e3)
                 await message.channel.send(embed=embed)
                 
                 meeeth = int(afk[f'{user_mention.id}']['mentions']) + 1
@@ -72,7 +62,7 @@ class AFK(commands.Cog):
                 meth = afk[f'{message.author.id}']['time']
                 mentionz = afk[f'{message.author.id}']['mentions']
 
-                embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings.", color=self.bot.color)
+                embed = discord.Embed(title=f"Welcome Back!", description=f"While you were AFK you recieved **{mentionz}** pings.", color=0xd3c1e3)
                 await message.reply(embed=embed)
                 
                 afk[f'{message.author.id}']['AFK'] = 'False'
