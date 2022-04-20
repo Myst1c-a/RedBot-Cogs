@@ -81,7 +81,7 @@ class AFK(commands.Cog):
         with open(file_path, 'w') as f:
             json.dump(afk, f)
         
-    @commands.command()
+    @commands.command(aliases=['eyefkay'])
     async def afk(self, ctx, *, reason=None):
         """AFK command"""
         script_dir = os.path.dirname(__file__)
