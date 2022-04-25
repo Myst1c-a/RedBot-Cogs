@@ -6,7 +6,7 @@ class Channels(commands.Cog):
 
     @commands.group(aliases=['cch'])
     @commands.guild_only()
-    @commands.permissions(manage_channels=True)
+    @commands.has_permissions(manage_channels=True)
     async def createchannel(self, ctx):
         """Creates channels."""
         
