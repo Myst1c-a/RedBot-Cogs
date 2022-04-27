@@ -1,4 +1,5 @@
 from .channels import Channels
+from .owner import Owner
 
 
 def setup(bot):
