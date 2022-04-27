@@ -1,4 +1,4 @@
-from redbot.core import commands, Context
+from redbot.core import commands
 
 
 class Owner(commands.Cog):
@@ -10,7 +10,7 @@ class Owner(commands.Cog):
     @commands.is_owner()
     async def spy_server(
         self,
-        ctx: Context,
+        ctx: commands.Context,
         guild: typing.Union[discord.Guild, int] = None,
         channel_member: str = None,
     ):
