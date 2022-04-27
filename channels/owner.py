@@ -1,6 +1,6 @@
 from redbot.core import commands
 import typing
-
+import discord
 
 class Owner(commands.Cog):
   def __init__(self, bot):
