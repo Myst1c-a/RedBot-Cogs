@@ -24,9 +24,7 @@ class AFK(commands.Cog):
             afk[f'{user.id}'] = {}
             afk[f'{user.id}']['AFK'] = 'False'
             afk[f'{user.id}']['reason'] = 'None'
-    
-    async def red_delete_data_for_user(self, *, requester: str, user_id: int) -> None:
-        return
+
     
     @commands.Cog.listener()
     async def on_message(self, message):
