@@ -1,5 +1,5 @@
 import discord
-from redbot.core.commands import commands
+from redbot.core import commands
 import random
 import json
 import time
