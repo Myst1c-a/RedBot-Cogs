@@ -1,5 +1,5 @@
-from .afk import AFKCog
+from .afk import AFK
 
 
 def setup(bot):
-    bot.add_cog(AFKCog(bot))
+    bot.add_cog(AFK(bot))
