@@ -12,7 +12,7 @@ def remove(afk):
     else:
         return afk
 
-class AFKCog(commands.Cog):
+class AFK(commands.Cog):
     '''
     Class containing AFK commands/system.
     '''
